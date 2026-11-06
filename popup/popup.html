@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess2Lichess</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body data-state="idle">
+  <main class="popup">
+    <header class="masthead">
+      <div class="strip" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h1>Chess2Lichess</h1>
+      <p class="tagline">Open this Chess.com game on the Lichess analysis board.</p>
+    </header>
+
+    <button id="analyze" class="primary" type="button" disabled>Analyze on Lichess</button>
+
+    <div id="status" class="status" role="status" aria-live="polite" hidden>
+      <span id="status-text"></span>
+    </div>
+
+    <p id="last" class="last" hidden>Last import: <a id="last-link" target="_blank" rel="noopener"></a></p>
+
+    <details id="manual" class="manual">
+      <summary>Paste a PGN instead</summary>
+      <label for="pgn-input">PGN</label>
+      <textarea id="pgn-input" rows="6" spellcheck="false"
+        placeholder="[Event &quot;Live Chess&quot;]&#10;…&#10;&#10;1. e4 e5 2. Nf3 …"></textarea>
+      <button id="send-manual" class="secondary" type="button">Send pasted PGN</button>
+    </details>
+  </main>
+
+  <script src="../utils/pgnValidator.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
